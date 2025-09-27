@@ -1,0 +1,515 @@
+slug: compreender
+name: COMPREENDER
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Movimento'
+  alcance: '** Curto'
+  alvo: '** Uma criatura, objeto ou fenômeno (definido pela Runa)'
+manual_html: '<p><em>Você analisa e revela a verdadeira natureza de uma criatura,
+  objeto ou efeito mágico, obtendo informações detalhadas conforme as Runas aplicadas.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Movimento</li>
+
+  <li><strong>Alcance.</strong> Curto</li>
+
+  <li><strong>Alvo.</strong> Uma criatura, objeto ou fenômeno (definido pela Runa)</li>
+
+  <li><strong>Duração.</strong> Instantâneo</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Você faz perguntas ao Mestre sobre o alvo analisado.
+  O número de <strong>informações</strong> que o mestre fornece é definido pelo Círculo
+  de magia utilizado e o tipo de alvo que pode ser analisado é definido pelas <strong>Runas</strong>
+  utilizadas.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Usar essa magia não exige um Teste de Conjuração.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> 1 informação  </li>
+
+  <li><strong>Círculo 2:</strong> 2 informações  </li>
+
+  <li><strong>Círculo 3:</strong> 3 informações  </li>
+
+  <li><strong>Círculo 4:</strong> 4 informações  </li>
+
+  <li><strong>Círculo 5:</strong> 5 informações  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Líquidos, rios, chuvas, criaturas aquáticas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Ventos, correntes de ar, criaturas voadoras.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Tempestades, criaturas da tempestade.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Magias e criaturas mágicas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Portais, anomalias espaciais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Pontos de ignição, calor residual, incêndios, criaturas flamejantes.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Geleiras, criaturas invernais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Anomalias gravitacionais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Fontes de iluminação, criaturas do plano da luz.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Detecta sentimentos superficiais do alvo. A partir da terceira aplicação,
+    também detecta pensamentos superficiais (Vontade evita ambos).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Composição metálica (se você tiver o conhecimento adequado), objetos,
+    construtos de metal.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Padrões de vibração, sons emitidos ou abafados, ressonâncias e possíveis
+    sons ocultos.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Composição do solo e rochas (se você tiver o conhecimento adequado),
+    construtos de pedra.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Anomalias temporais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Fontes de escuridão, criaturas do plano das trevas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

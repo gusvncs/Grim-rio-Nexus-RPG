@@ -1,0 +1,512 @@
+slug: fortalecer-criatura
+name: FORTALECER CRIATURA
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Médio'
+  alvo: '** Uma criatura (ou criaturas à sua escolha em área, conforme o Círculo)'
+manual_html: '<p><em>Você concede bônus e condições benéficas a uma criatura ou grupo
+  de criaturas, facilitando suas ações enquanto durar a magia.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Médio</li>
+
+  <li><strong>Alvo.</strong> Uma criatura (ou criaturas à sua escolha em área, conforme
+  o Círculo)</li>
+
+  <li><strong>Duração.</strong> Concentração</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">O alvo recebe um Bônus em todos os Testes que realizar,
+  de acordo com o Círculo da Magia.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Bônus +2  </li>
+
+  <li><strong>Círculo 2:</strong> Bônus +2  | Criaturas à sua escolha em um Raio (4
+  Espaços)  </li>
+
+  <li><strong>Círculo 3:</strong> Bônus +4  </li>
+
+  <li><strong>Círculo 4:</strong> Bônus +4  | Criaturas à sua escolha em um Raio (6
+  Espaços)  </li>
+
+  <li><strong>Círculo 5:</strong> Bônus +6  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>O alvo não pode ficar Agarrado, Lento ou Imóvel.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>O deslocamento do alvo aumenta em 2 para cada vez que esta Runa for aplicada.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Qualquer criatura que faça um Teste contra o alvo fica Eletrocutado
+    (1) para cada vez que você aplicar essa runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Qualquer criatura que faça um Teste contra o alvo recebe 1d8 de dano
+    de Essência para cada vez que esta Runa for aplicada.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Uma vez por turno, com uma ação livre, o alvo pode se Teletransportar
+    (2) para cada vez que esta Runa for aplicada.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Qualquer criatura que faça um Teste contra o alvo fica Em Chamas (1) para
+    cada vez que você aplicar essa runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Qualquer criatura que faça um Teste contra o alvo fica Lento (2) para
+    cada vez que você aplicar essa runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>O deslocamento do alvo aumenta em 2 para cada vez que esta Runa for
+    aplicada.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>O alvo recebe Camuflagem. Na terceira aplicação dessa Runa, recebe Cobertura
+    Parcial.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>O alvo fica não pode ficar Confuso, Enfeitiçado, Fascinado ou com Medo.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Qualquer criatura que faça um Teste contra o alvo recebe 1d6 de dano
+    de Corte ou Perfuração para cada vez que esta Runa for aplicada.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>O alvo fica Imune a Surdo e Atordoado, recebendo vantagem em Testes de
+    Percepção para ouvir.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>O terreno abaixo do alvo é sempre considerado Terreno Alto.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>O deslocamento do alvo aumenta em 2 para cada vez que esta Runa for aplicada.
+    Na terceira aplicação dessa Runa, pode fazer uma Ação adicional em cada um de
+    seus turnos.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>O alvo recebe Camuflagem. Na terceira aplicação dessa Runa, recebe Cobertura
+    Parcial.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

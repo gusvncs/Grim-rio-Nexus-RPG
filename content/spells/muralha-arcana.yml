@@ -1,0 +1,525 @@
+slug: muralha-arcana
+name: MURALHA ARCANA
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Médio'
+  alvo: '** Veja o texto abaixo'
+manual_html: '<p><em>Você ergue uma barreira mágica.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Médio</li>
+
+  <li><strong>Alvo.</strong> Veja o texto abaixo</li>
+
+  <li><strong>Duração.</strong> Concentração</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Cria uma muralha de energia arcana incorpórea e visível,
+  com altura máxima de 3 espaços. O comprimento máximo e a Vida da muralha são definidos
+  pelo Círculo da Magia.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Você escolhe o formato da muralha ao conjurar a magia
+  (como reto, quadrado, circular, cúpula). Uma mesma criatura só pode ser afetada
+  por efeitos de Runas da muralha uma vez por turno. Conjurar essa magia não exige
+  um Teste de Conjuração.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> 10 PV | Comprimento de 6 espaços</li>
+
+  <li><strong>Círculo 2:</strong> 30 PV | Comprimento de 8 espaços</li>
+
+  <li><strong>Círculo 3:</strong> 50 PV | Comprimento de 10 espaços</li>
+
+  <li><strong>Círculo 4:</strong> 100 PV | Comprimento de 15 espaços</li>
+
+  <li><strong>Círculo 5:</strong> 150 PV | Comprimento de 20 espaços</li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Criaturas adjacentes (Reflexos evitam) ou que atravessem são Empurradas
+    (2) para fora da muralha e perdem a condição Em Chamas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Se torna corpórea apenas contra projéteis e recebe metade do dano contra
+    projéteis.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Criaturas adjacentes (Fortitude evita) ou que atravessem ficam
+    Eletrocutadas (2) para cada aplicação dessa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Se torna corpórea.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Criaturas que atravessem são Teletransportadas (3) para um espaço à
+    sua escolha, do outro lado da muralha.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Criaturas adjacentes (Reflexos evitam) ou que atravessem ficam Em Chamas
+    (2) para cada aplicação dessa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Se torna corpórea e escorregadia. Os espaços adjacentes à muralha se tornam
+    Terreno Escorregadio.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Criaturas a até 2 Espaços são Empurradas (1) na direção da muralha
+    (Fortitude evita).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Criaturas adjacentes ficam Ofuscadas, também ficando Cegas até o fim do
+    turno se a atravessarem.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Criaturas adjacentes à muralha ficam Distraídas (Vontade evita), também
+    ficando Desprevenidas por uma rodada se a atravessarem.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Se torna corpórea e impede a visão através da muralha.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Bloqueia a passagem de sons através da muralha. Criaturas adjacentes ou
+    que atravesem ficam Surdas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Se torna corpórea e impede a visão através da muralha.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Criaturas adjacentes (Fortitude evita) ou que atravessem ficam Lentas
+    (2) ou tem seu deslocamento aumentado em 2, à sua escolha.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Impede a visão através da muralha, gerando Esuridão Parcial nas áreas
+    adjacentes. Se aplicar essa Runa uma terceira vez, gera Escuridão Total. Criaturas
+    que atravessem ficam com Medo de você (Vontade evita).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

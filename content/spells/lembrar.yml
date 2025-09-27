@@ -1,0 +1,515 @@
+slug: lembrar
+name: LEMBRAR
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Toque'
+  alvo: '** Uma criatura, objeto ou local'
+manual_html: '<p><em>Você revisita ecos do passado vinculados a uma criatura, objeto
+  ou local, observando eventos e detalhes importantes.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Toque</li>
+
+  <li><strong>Alvo.</strong> Uma criatura, objeto ou local</li>
+
+  <li><strong>Duração.</strong> Concentração</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Você tem uma visão de um evento passado envolvendo
+  o alvo, até o limite de tempo definido pelo Círculo de magia utilizado. Você fica
+  Indefeso enquanto estiver tendo a visão.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Ao conjurar essa magia, você diz ao Mestre se há algum
+  evento específico que você quer vivenciar, de acordo com as Runas utilizadas, e
+  o Mestre então narra brevemente o evento (ou outro similar). Se não houver um evento
+  similar ao que você quer vivenciar (ou se as Runas utilizadas não forem compatíveis
+  com o evento que você quer vivenciar), a magia falha.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Até 24 horas atrás  </li>
+
+  <li><strong>Círculo 2:</strong> Até 1 semana atrás  </li>
+
+  <li><strong>Círculo 3:</strong> Até 1 ano atrás  </li>
+
+  <li><strong>Círculo 4:</strong> Até 100 anos atrás  </li>
+
+  <li><strong>Círculo 5:</strong> Até 1000 anos atrás  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Inundações, viagens aquáticas, chuvas, mares, rios ou criaturas aquáticas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Ventanias, furacões, viagens aéreas e relacionadas ao ar.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Tempestades elétricas e eventos relacionados a eletricidade.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Segurança de magias, efeitos de rituais, destino de itens mágicos.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Distâncias percorridas e localizações.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Incêndios, explosões, ondas de calor, clima seco ou quente.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Nevascas, climas frios.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Quedas, desabamentos, situações que envolvam peso.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Dia, sol, curas de ferimentos ou doenças.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Intenções, decisões, alianças, traições.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Forjas, batalhas, armas, armadilhas, tecnologia, fortificações.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Sons, barulhos, vozes.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Estabilidade, construções, tremores, colheitas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Anomalias temporais. Também dobra o limite de tempo da lembrança para
+    cada aplicação dessa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Noite, lua, morte</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

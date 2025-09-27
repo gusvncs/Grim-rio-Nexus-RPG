@@ -1,0 +1,515 @@
+slug: localizar
+name: LOCALIZAR
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** De acordo com o Círculo da Magia'
+  alvo: '** Criaturas, objetos, fenômenos ou elementos, a depender das Runas utilizadas'
+manual_html: '<p><em>Você localiza fontes específicas de energia, criaturas ou magias,
+  analisando o ambiente à procura de pistas mágicas, materiais ou sensoriais.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> De acordo com o Círculo da Magia</li>
+
+  <li><strong>Alvo.</strong> Criaturas, objetos, fenômenos ou elementos, a depender
+  das Runas utilizadas</li>
+
+  <li><strong>Duração.</strong> Concentração</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Você localiza o alvo. No primeiro turno, você detecta
+  sua direção. No segundo turno, você detecta sua distância aproximada. No terceiro
+  turno, você recebe uma visão do alvo, descobrindo sua localização exata, ignorando
+  invisibilidade e qualquer outra condição que o impeça de percebê-lo.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Se houver mais de um alvo possível na área, você deve
+  escolher qual deles irá descobrir a localização exata no terceiro turno. Usar essa
+  magia não exige um Teste de Conjuração.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Alcance Curto  </li>
+
+  <li><strong>Círculo 2:</strong> Alcance Médio  </li>
+
+  <li><strong>Círculo 3:</strong> Alcance Longo  </li>
+
+  <li><strong>Círculo 4:</strong> Em qualquer lugar do mesmo Plano  </li>
+
+  <li><strong>Círculo 5:</strong> Em qualquer lugar (mesmo em Planos vizinhos)</li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Líquidos, rios, chuvas, criaturas aquáticas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Ventos, correntes de ar, criaturas voadoras.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Tempestades, criaturas da tempestade.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Magias e criaturas mágicas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Portais, anomalias espaciais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Pontos de ignição, calor residual, incêndios, criaturas flamejantes.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Gelerias, criaturas invernais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Anomalias gravitacionais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Fontes de iluminação, criaturas do plano da luz.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Detecta sentimentos intensos na área (você escolhe um ao conjurar a magia,
+    como Medo, Raiva, Tristeza, Felicidade, etc).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Metais, minérios, objetos metálicos, armaduras ou estruturas de metal.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Ruídos normalmente inaudíveis.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Pedras, solo, construtos de pedra.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Anomalias temporais.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Fontes de escuridão, criaturas do plano das trevas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

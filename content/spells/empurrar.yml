@@ -1,0 +1,534 @@
+slug: empurrar
+name: EMPURRAR
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Médio'
+  alvo: '** Um ou mais criaturas ou objetos de tamanho Médio ou menor'
+manual_html: '<p><em>Você empurra criaturas ou objetos com força mágica, causando
+  dano de impacto conforme o círculo da magia. Características não mencionadas permanecem
+  inalteradas.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Médio</li>
+
+  <li><strong>Alvo.</strong> Um ou mais criaturas ou objetos de tamanho Médio ou menor</li>
+
+  <li><strong>Duração.</strong> Instantâneo</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Empurre (6) cada alvo (Vontade diminui). Se colidir
+  com uma criatura ou objeto, ambos recebem dano de impacto conforme o círculo da
+  magia.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Se um alvo colidir com uma superfície sólida ou outra
+  criatura, ambos recebem dano da magia. Se colidir mais de uma vez, recebe 1d6 de
+  dano adicional para cada colisão após a primeira.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Você pode afetar até um número de alvos Médios igual
+  ao Círculo da magia. Você pode afetar alvos de outros tamanhos, considerando que:</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <p><strong>1 Alvo Médio = 2 Pequenos</strong></p>
+
+  <p><strong>2 Alvos Médios = 1 Grande</strong></p>
+
+  <p><strong>3 Alvos Médios = 1 Enorme</strong></p>
+
+  <p><strong>4 Alvos Médios = 1 Descomunal</strong></p>
+
+  <p><strong>5 Alvos Médios = 1 Colossal</strong></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> 1d6+2 | até 1 alvo Médio  </li>
+
+  <li><strong>Círculo 2:</strong> 2d6+3 | até 2 alvos Médios</li>
+
+  <li><strong>Círculo 3:</strong> 3d8+4 | até 3 alvos Médios</li>
+
+  <li><strong>Círculo 4:</strong> 4d10+5 | até 4 alvos Médios</li>
+
+  <li><strong>Círculo 5:</strong> 5d10+7 | até 5 alvos Médios  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Lento (2) por aplicação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Pode Empurrar em qualquer direção.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Eletrocutado (1) por aplicação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Empurre (2) adicionalmente por aplicação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Em vez de Empurrar, Teletransporte o alvo na mesma distância.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Em Chamas (1) por aplicação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Lento (2) por aplicação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Pode Empurrar em qualquer direção.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Ofuscado até o próximo turno.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Pode empurrar em qualquer direção.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Sangrando (1) por aplicação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Surdo. Na terceira aplicação, também fica Atordoado por uma rodada.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Caído se colidir com superfície sólida.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Retorne o alvo para o Espaço onde estava no turno anterior.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Medo.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

@@ -1,0 +1,513 @@
+slug: arma-magica
+name: ARMA MÁGICA
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Curto'
+  alvo: '** Uma arma empunhada por criatura voluntária'
+manual_html: '<p><em>Você canaliza energia arcana diretamente em uma arma, imbuindo-a
+  com poder elemental ou puro. Ao atacar, a arma manifesta efeitos mágicos conforme
+  as Runas aplicadas.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Curto</li>
+
+  <li><strong>Alvo.</strong> Uma arma empunhada por criatura voluntária</li>
+
+  <li><strong>Duração.</strong> Cena</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Testes de Luta feitos com a arma recebem um Bônus,
+  de acordo com o Círculo de magia utilizado.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Bônus de +1  </li>
+
+  <li><strong>Círculo 2:</strong> Bônus de +2  </li>
+
+  <li><strong>Círculo 3:</strong> Bônus de +3  </li>
+
+  <li><strong>Círculo 4:</strong> Bônus de +4  </li>
+
+  <li><strong>Círculo 5:</strong> Bônus de +5  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Cada alvo acertado pela arma fica Lento (2) para cada vez que você aplicar
+    essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Cada alvo acertado pela arma é Empurrado (2) para cada vez que você aplicar
+    essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Cada alvo acertado pela arma recebe 2 de dano de Eletricidade
+    para cada vez que você aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>A arma ignora Resistências. Cada aplicação adicional reduz a Resistência
+    do alvo em 2 antes do dano.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>O alcance da arma aumenta em 1 para cada vez que você aplicar essa Runa.
+    Uma arma à distância ignora cobertura.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Cada alvo acertado pela arma recebe 2 de dano de Fogo para cada vez que
+    você aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Cada alvo acertado pela arma recebe 2 de dano de Frio para cada vez que
+    você aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Cada alvo acertado pela arma fica Caído.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Cada alvo acertado pela arma recebe 2 de dano Radiante para cada vez que
+    você aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>A arma flutua ao redor do dono e pode ser usada normalmente como se estivesse
+    sido empunhada. </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Cada alvo acertado pela arma fica Sangrando (1) para cada vez que você
+    aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Cada alvo acertado pela arma recebe 2 de dano Sônico para cada vez que
+    você aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Objetos e construtos acertados pela arma recebem 2 de dano de Impacto
+    adicional para cada vez que você aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>O portador da arma recebe uma Reação adicional por rodada para cada vez
+    que você aplicar essa Runa. Essa reação pode ser usada apenas para fazer Ataques
+    de Oportunidade.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Cada alvo acertado pela arma recebe 2 de dano de Trevas para cada vez
+    que você aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

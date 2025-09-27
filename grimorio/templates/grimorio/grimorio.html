@@ -1,0 +1,68 @@
+{% extends "grimorio/base.html" %}
+{% load get_item %}
+{% block content %}
+<nav class="tabs" role="tablist" aria-label="Magias selecionadas">
+  {% for s in spells %}
+  <button class="tab{% if forloop.first %} active{% endif %}" role="tab"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-controls="panel-{{ s.slug }}" id="tab-{{ s.slug }}"
+          data-target="panel-{{ s.slug }}">
+    {{ s.name }}
+  </button>
+  {% endfor %}
+</nav>
+
+<section class="panels">
+  {% for p in panels %}
+  <article id="panel-{{ p.spell.slug }}"
+           class="tabpanel{% if not forloop.first %} hidden{% endif %}"
+           role="tabpanel" aria-labelledby="tab-{{ p.spell.slug }}">
+    <header class="spell-head">
+      <h2>{{ p.spell.name }}</h2>
+      {% if p.attributes %}
+      <ul class="attrs">
+        {% if p.attributes.execucao %}<li><strong>Execução:</strong> {{ p.attributes.execucao }}</li>{% endif %}
+        {% if p.attributes.alcance %}<li><strong>Alcance:</strong> {{ p.attributes.alcance }}</li>{% endif %}
+        {% if p.attributes.alvo %}<li><strong>Alvo:</strong> {{ p.attributes.alvo }}</li>{% endif %}
+        {% if p.attributes.area %}<li><strong>Área:</strong> {{ p.attributes.area }}</li>{% endif %}
+        {% if p.attributes.duracao %}<li><strong>Duração:</strong> {{ p.attributes.duracao }}</li>{% endif %}
+      </ul>
+      {% endif %}
+    </header>
+
+    <section class="spell-body">
+      <div class="manual-block">
+        {{ p.spell.manual_html|safe }}
+      </div>
+
+      {% if runes %}
+      <div class="runes">
+        <h3>Runas que você conhece</h3>
+        <div class="rune-cards">
+          {% for r in runes %}
+          {% with effect=p.spell.rune_effects_json|get_item:r.slug %}
+          <article class="rune-card">
+            <h4>{{ r.name }}</h4>
+            <div class="rune-desc">
+              {% if effect %}
+                {{ effect|safe }}
+              {% else %}
+                <p><em>Sem efeito específico definido para esta magia.</em></p>
+              {% endif %}
+            </div>
+          </article>
+          {% endwith %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+  </article>
+  {% endfor %}
+</section>
+
+<div class="toolbar">
+  <a href="/" class="btn">← Voltar</a>
+  <button class="btn" onclick="window.print()">Imprimir / PDF</button>
+</div>
+{% endblock %}

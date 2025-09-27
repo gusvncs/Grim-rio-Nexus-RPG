@@ -1,0 +1,524 @@
+slug: enfraquecer-elemento
+name: ENFRAQUECER ELEMENTO
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Médio'
+  alvo: '** Raio (6)'
+manual_html: '<p><em>Você enfraquece uma manifestação elemental, reduzindo significativamente
+  sua intensidade e capacidade de afetar o ambiente.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Médio</li>
+
+  <li><strong>Alvo.</strong> Raio (6)</li>
+
+  <li><strong>Duração.</strong> Concentração</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Reduz a intensidade ou faz desaparecer uma manifestação,
+  até o limite de intensidade máxima permitida pelo Círculo utilizado. O tipo de manifestação
+  ou fenômeno que pode ser afetado é definido pela Runa utilizada.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Se você utilizar uma Runa para afetar um objeto que
+  exceda o alcance de sua magia (como um rio, um navio ou o vento), somente a parte
+  do objeto dentro do alcance será afetada. As demais partes permanecerão sem alterações,
+  como se a magia não tivesse sido conjurada.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Pode reduzir até manifestações Leves  </li>
+
+  <li><strong>Círculo 2:</strong> Pode reduzir até manifestações Moderadas  </li>
+
+  <li><strong>Círculo 3:</strong> Pode reduzir até manifestações Intensas  </li>
+
+  <li><strong>Círculo 4:</strong> Pode reduzir até manifestações Catastróficas  </li>
+
+  <li><strong>Círculo 5:</strong> Pode reduzir até manifestações Divinas  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Reduz correntezas e chuvas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Enfraquece ventanias, furacões e névoas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Reduz tempestades elétricas e áreas ou criaturas Eletrocutadas
+    (reduz a Condição em 1 para cada vez que essa Runa for aplicada).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Enfraquece auras mágicas, impondo Desvantagem em testes para identificá-las.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Criaturas não podem se teletransportar ou acessar outros planos/dimensões.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Reduz fogo e áreas ou criaturas Em Chamas (reduz a Condição em 1 para
+    cada vez que essa Runa for aplicada).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Enfraquece tempestades de granizo, geleiras e nevascas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Reduz a gravidade, aumentando o Deslocamento de criaturas na área
+    em 2 para cada vez que aplicar essa Runa. Na terceira aplicação dessa Runa, a
+    gravidade deixa de existir (todas as superfícies e objetos na área são consideradas
+    chão para propósito de deslocamento).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Enfraquece fontes luminosas, gerando Escuridão Parcial na área. Criaturas
+    na área não podem ser Ofuscadas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Criaturas na área ficam Frustradas (2). Para cada vez adicional que aplicar
+    essa Runa, elas ficam Frustradas (1) adicionalmente.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Enfraquece ligas metálicas. Dobre qualquer dano que objetos de metal
+    não-mágicos receberiam.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Criaturas são consideradas Surdas para perceber qualquer coisa que não
+    esteja adjacente a elas. Na tercira aplicação dessa Runa, nenhum som pode ser
+    emitido na área.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Enfraquece tremores e terremotos. Dobre dano que objetos de pedra não-mágicos
+    receberiam.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Criaturas na área ficam Lentas (2) para cada vez que você aplicar essa
+    Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Enfraquece fontes de escuridão, dissipando Escuridão Parcial na área
+    (e tornando em Escuridão Parcial as áreas de Escuridão Total).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

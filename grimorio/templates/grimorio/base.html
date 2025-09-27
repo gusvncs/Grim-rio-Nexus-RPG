@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Grimório Nexus RPG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'grimorio/css/grimorio.css' %}" rel="stylesheet">
+</head>
+<body class="theme-dark">
+  <header class="app-header">
+    <h1>Grimório Nexus RPG</h1>
+  </header>
+  <main class="app-main">
+    {% block content %}{% endblock %}
+  </main>
+  <script src="{% static 'grimorio/js/selection.js' %}"></script>
+  <script src="{% static 'grimorio/js/tabs.js' %}"></script>
+</body>
+</html>

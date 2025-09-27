@@ -1,0 +1,529 @@
+slug: fortalecer-elemento
+name: FORTALECER ELEMENTO
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Médio'
+  alvo: '** Raio (6)'
+manual_html: '<p><em>Você amplifica uma manifestação elemental, aumentando significativamente
+  sua intensidade e capacidade de afetar o ambiente.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Médio</li>
+
+  <li><strong>Alvo.</strong> Raio (6)</li>
+
+  <li><strong>Duração.</strong> Concentração</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Aumenta a intensidade de uma manifestação pré-existente,
+  até o limite de intensidade máxima permitida pelo Círculo utilizado. O tipo de manifestação
+  ou fenômeno que pode ser afetado é definido pela Runa utilizada.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Se você utilizar uma Runa para afetar um objeto que
+  exceda o alcance de sua magia (como um rio, um navio ou o vento), somente a parte
+  do objeto dentro do alcance será afetada. As demais partes permanecerão sem alterações,
+  como se a magia não tivesse sido conjurada.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Pode aumentar a intensidade de manifestações para
+  Moderadas</li>
+
+  <li><strong>Círculo 2:</strong> Pode aumentar a intensidade de manifestações para
+  Intensas  </li>
+
+  <li><strong>Círculo 3:</strong> Pode aumentar a intensidade de manifestações para
+  Catastróficas  </li>
+
+  <li><strong>Círculo 4:</strong> Pode aumentar a intensidade de manifestações para
+  Divinas  </li>
+
+  <li><strong>Círculo 5:</strong> Pode criar manifestações do zero, até intensidade
+  Divina  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Intensifica correntezas e chuvas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Fortalece ventanias, furacões e névoas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Potencializa tempestades elétricas e áreas ou criaturas Eletrocutadas
+    (aumenta a Condição em 1 para cada vez que essa Runa for aplicada).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Amplifica auras mágicas, concedendo Vantagem em Testes para identificá-las.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Deslocamentos de Teletransporte na área são dobrados.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Potencializa fogo e áreas ou criaturas Em Chamas (aumenta a Condição em
+    1 para cada vez que essa Runa for aplicada).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Potencializa tempestades de granizo, geleiras e nevascas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Aumenta a gravidade, deixando criaturas na área Lentas (2) para cada
+    vez que aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Fortalece fontes de luz, dissipando Escuridão Parcial na área (e tornando
+    em Escuridão Parcial as áreas de Escuridão Total).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Criaturas na área recebem +2 em Testes envolvendo Carisma, Sabedoria
+    e Inteligência. Esse bônus aumenta em 1 para cada vez que você aplicar essa Runa
+    após a primeira.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Fortalece ligas metálicas. Reduza pela metade qualquer dano que objetos
+    de metal não-mágicos receberiam.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Aumenta a intensidade dos sons no local. Ninguém pode ficar Surdo na área
+    e Testes para não emitir sons são feitos com Desvantagem.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Fortalece tremores e terremotos. Reduza pela metade qualquer dano que
+    objetos de pedra não-mágicos receberiam.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Aumenta o Deslocamento de criaturas na área em 2 para cada vez que aplicar
+    essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Fortalece escuridão, gerando Escuridão Parcial na área (e tornando em
+    Escuridão Total as áreas de Escuridão Parcial).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

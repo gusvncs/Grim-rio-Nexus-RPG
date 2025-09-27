@@ -1,0 +1,55 @@
+:root{
+  --bg:#0b0b0c; --panel:#1c1c1f; --text:#fff; --muted:#9aa0a6; --blue:#2f81f7; --chip:#2a2a2e;
+}
+*{box-sizing:border-box}
+body.theme-dark{background:var(--bg); color:var(--text); margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.app-header{padding:16px 24px; border-bottom:1px solid #2a2a2e}
+.app-header h1{margin:0; font-size:18px; color:#e6e6e6}
+.app-main{padding:16px; max-width:1200px; margin:0 auto}
+
+.columns{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.column{background:var(--panel); border:1px solid #2a2a2e; border-radius:8px; padding:12px}
+.column-header{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px}
+.actions{display:flex; gap:8px; align-items:center}
+.counter{color:var(--muted); font-size:13px}
+
+.chips{display:flex; flex-wrap:wrap; gap:8px}
+.chip{display:inline-flex; align-items:center; padding:8px 12px; background:var(--chip); border-radius:20px; cursor:pointer; user-select:none; border:1px solid #333}
+.chip input{display:none}
+.chip span{font-size:14px}
+.chip input:checked + span,
+.chip input:checked ~ span{color:#fff}
+.chip input:checked ~ span,
+.chip:has(input:checked){background:linear-gradient(0deg, rgba(47,129,247,.16), rgba(47,129,247,.16)), var(--chip); border-color:var(--blue)}
+
+.footer-bar{position:sticky; bottom:0; background:rgba(11,11,12,.8); backdrop-filter:blur(6px); padding:12px; border-top:1px solid #2a2a2e; display:flex; justify-content:flex-end}
+
+.btn{background:#2a2a2e; border:1px solid #3a3a3f; color:#fff; padding:8px 12px; border-radius:6px; cursor:pointer}
+.btn.small{padding:4px 8px; font-size:13px}
+.btn.primary{background:var(--blue); border-color:#306fe0}
+
+.tabs{display:flex; gap:8px; overflow:auto; padding-bottom:8px; border-bottom:1px solid #2a2a2e; margin-bottom:12px}
+.tab{background:#232326; color:#eaeaea; border:1px solid #333; padding:8px 12px; border-radius:6px; cursor:pointer}
+.tab.active{background:var(--blue); border-color:#2b66cc}
+
+.panels{margin-top:8px}
+.tabpanel.hidden{display:none}
+.spell-head h2{margin:0 0 8px}
+.attrs{list-style:none; padding:0; margin:0 0 12px; display:flex; flex-wrap:wrap; gap:12px; color:#ddd}
+.manual-block{background:#121214; border:1px solid #2a2a2e; padding:12px; border-radius:8px; margin-bottom:12px}
+.circles ol{margin:0 0 12px 20px}
+.rune-cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px}
+.rune-card{background:#141416; border:1px solid #2a2a2e; border-radius:8px; padding:10px}
+.rune-card h4{margin:0 0 6px}
+
+.toolbar{margin-top:16px; display:flex; gap:8px}
+.empty{background:var(--panel); border:1px solid #2a2a2e; padding:24px; border-radius:8px}
+
+@media (max-width: 860px){
+  .columns{grid-template-columns:1fr}
+}
+@media print{
+  .app-header, .footer-bar, .tabs, .toolbar{display:none}
+  body{background:#fff; color:#000}
+  .manual-block, .rune-card{border:1px solid #ccc}
+}

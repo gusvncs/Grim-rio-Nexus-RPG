@@ -1,0 +1,49 @@
+{% extends "grimorio/base.html" %}
+{% block content %}
+<form method="post" class="select-form">
+  {% csrf_token %}
+  <div class="columns">
+    <section class="column">
+      <div class="column-header">
+        <h2>Magias</h2>
+        <div class="actions">
+          <button type="button" class="btn small" data-bulk="spells" data-action="select">Selecionar tudo</button>
+          <button type="button" class="btn small" data-bulk="spells" data-action="clear">Limpar</button>
+          <span class="counter" id="count-spells">0 selecionadas</span>
+        </div>
+      </div>
+      <div class="chips" id="chips-spells">
+        {% for s in spells %}
+        <label class="chip">
+          <input type="checkbox" name="spells[]" value="{{ s.slug }}">
+          <span>{{ s.name }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="column">
+      <div class="column-header">
+        <h2>Runas</h2>
+        <div class="actions">
+          <button type="button" class="btn small" data-bulk="runes" data-action="select">Selecionar tudo</button>
+          <button type="button" class="btn small" data-bulk="runes" data-action="clear">Limpar</button>
+          <span class="counter" id="count-runes">0 selecionadas</span>
+        </div>
+      </div>
+      <div class="chips" id="chips-runes">
+        {% for r in runes %}
+        <label class="chip">
+          <input type="checkbox" name="runes[]" value="{{ r.slug }}">
+          <span>{{ r.name }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <div class="footer-bar">
+    <button type="submit" class="btn primary">Gerar Grimório</button>
+  </div>
+</form>
+{% endblock %}

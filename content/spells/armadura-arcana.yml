@@ -1,0 +1,19 @@
+slug: armadura-arcana
+name: Armadura Arcana
+school: Abjuração
+version: '1.0'
+attributes:
+  execucao: Ação
+  alcance: Toque
+  alvo: Criatura
+  area: '-'
+  duracao: 10 minutos (Concentração)
+manual_html: <h2>Armadura Arcana</h2><p><strong>Execução:</strong> Ação • <strong>Alcance:</strong>
+  Toque • <strong>Alvo:</strong> Criatura • <strong>Duração:</strong> 10 minutos (Concentração)</p><p>(Coloque
+  aqui o texto fiel do manual.)</p><h3>Modificações por Círculo</h3><ol><li><strong>Círculo
+  1:</strong> ...</li><li><strong>Círculo 2:</strong> ...</li><li><strong>Círculo
+  3:</strong> ...</li><li><strong>Círculo 4:</strong> ...</li><li><strong>Círculo
+  5:</strong> ...</li></ol>
+rune_effects:
+  fogo: <p><strong>Fogo:</strong> (efeito de Fogo para Armadura Arcana)</p>
+  gelo: <p><strong>Gelo:</strong> (efeito de Gelo para Armadura Arcana)</p>

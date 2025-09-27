@@ -1,0 +1,525 @@
+slug: criar-elemento
+name: CRIAR ELEMENTO
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Curto'
+  alvo: '** Área conforme o Círculo da Magia'
+manual_html: '<p><em>Você materializa uma manifestação duradoura e significativa de
+  um elemento ou princípio arcano, capaz de alterar de forma relevante o ambiente
+  ou criar condições especiais.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Curto</li>
+
+  <li><strong>Alvo.</strong> Área conforme o Círculo da Magia</li>
+
+  <li><strong>Duração.</strong> Cena</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Cria uma manifestação elementar na área, de acordo
+  com a Runa utilizada. Pode ser usado para anular efeitos mágicos de Círculo igual
+  ou inferior, de acordo com o mestre.</td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;"></td>
+
+  </tr>
+
+  <tr>
+
+  <td style="text-align: left;">Objetos ou estruturas complexas só podem ser criados
+  se o conjurador possuir a perícia adequada, de acordo com o Mestre.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Raio (2)  </li>
+
+  <li><strong>Círculo 2:</strong> Raio (4)  </li>
+
+  <li><strong>Círculo 3:</strong> Raio (6)</li>
+
+  <li><strong>Círculo 4:</strong> Raio (10)  </li>
+
+  <li><strong>Círculo 5:</strong> Raio (15)  </li>
+
+  </ul>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Cria chuva intensa na área, apagando chamas presentes e tornando superfícies
+    molhadas, gerando Terreno Difícil.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Cria um vento que dissipa neblinas e fumaças, Empurrando (3) criaturas na
+    área no início de cada um de seus turnos.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Deixa a área Eletrocutada (2) para cada vez que você aplicar esta
+    Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Gera uma aura mágica inofensiva, mas visível e detectável na área.
+    você pode escolher Espaços específicos na área para serem afetados pela magia.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Cria dois portais dimensionais dentro da área, ligados entre si. Uma
+    criatura ou objeto que entrar por um, sai imediatamente pelo outro.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Deixa a área Em Chamas (2) para cada vez que você aplicar esta Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Congela superfícies, gerando Terreno Escorregadio na área.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Aumenta a gravidade na área, deixando cada criatura Lenta (2) para
+    cada vez que aplicar esta Runa. A partir da terceira aplicação, você pode inverter
+    a gravidade na área ao invés.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Ilumina a área, dissipando regiões de Escuridão. Você pode conjurar a magia
+    em um objeto que pode ser transportado, movendo a área da magia de acordo.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Cria um vínculo mental entre criaturas voluntárias à sua escolha na área,
+    que podem se comunicar telepaticamente (mesmo se saírem da área).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Cria estruturas ou objetos de metal que modificam o terreno, criando
+    áreas de Cobertura, Terreno Elevado ou Terreno Difícil (escolha uma).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Cria um som contínuo na área que pode ser ouvido até em alcance Longo.
+    Criaturas na área ficam Surdas.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Cria estruturas ou objetos de pedra que modificam o terreno, criando
+    áreas de Cobertura, Terreno Elevado ou Terreno Difícil (escolha uma).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Aumenta o deslocamento de todos na área em 2 para cada vez que você aplicar
+    essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Gera Escuridão Parcial na área. Você pode conjurar a magia em um objeto
+    que pode ser transportado, movendo a área da magia de acordo. Se aplicar essa
+    Runa uma terceira vez, gera Escuridão Total.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

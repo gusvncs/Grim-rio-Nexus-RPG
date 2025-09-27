@@ -1,0 +1,537 @@
+slug: disparo-arcano
+name: DISPARO ARCANO
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Médio'
+  alvo: '** Uma criatura ou objeto no alcance'
+manual_html: '<p><em>Esta é uma magia criada para canalizar energia destrutiva pura
+  ou elemental.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Médio</li>
+
+  <li><strong>Alvo.</strong> Uma criatura ou objeto no alcance</li>
+
+  <li><strong>Duração.</strong> Instantâneo</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">Cause dano ao alvo conforme o Círculo utilizado. O
+  tipo de dano é definido pela Runa utilizada (se aplicar mais de uma Runa, você escolhe
+  um dos tipos de dano possíveis).</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> 3d6 de dano</li>
+
+  <li><strong>Círculo 2:</strong> 6d6 de dano</li>
+
+  <li><strong>Círculo 3:</strong> 6d8 + 15 de dano</li>
+
+  <li><strong>Círculo 4:</strong> 6d12 + 30 de dano</li>
+
+  <li><strong>Círculo 5:</strong> 6d20 + 60 de dano</li>
+
+  </ul>
+
+  <hr>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Dano de Impacto. O alvo fica Lento (2) para cada vez que você aplicar
+    essa Runa (Fortitude impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Dano de Corte. O alvo é Empurrado (2) para cada vez que você aplicar essa
+    Runa (Fortitude impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Dano de Eletricidade. O alvo fica Eletrocutado (1) para cada vez
+    que você aplicar essa Runa (Fortitude impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Dano de Essência. Você acerta o alvo mesmo se ele estiver atrás de Cobertura.  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Dano de Essência. Reduza o dano rolado pela metade. Você não precisa
+    fazer um Teste de Conjuração (o resultado é considerado Sucesso, mas pode sofrer
+    Desvantagem). </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Dano de Fogo. O alvo fica Em Chamas (1) para cada vez que você aplicar
+    essa Runa (Reflexos impõem Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Dano de Frio. O alvo fica Lento (2) para cada vez que você aplicar essa
+    Runa (Fortitude impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>Dano de Impacto. O alvo fica Lento (2) para cada vez que você aplicar
+    essa Runa (Fortitude impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\columnbreak</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Dano Radiante. O alvo fica Ofuscado. Se aplicar essa Runa uma terceira
+    vez, ele fica Cego adicionalmente por uma rodada (Reflexos impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Dano Psíquico. O alvo fica Frustrado (2). Ele fica Frustrado (1) adicionalmente
+    para cada vez que você aplicar essa Runa (Vontade impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Dano de Corte ou Perfuração. O alvo fica Sangrando (1) para cada vez
+    que você aplicar essa Runa (Reflexos impõem Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Dano Sônico. O alvo fica Surdo. Se aplicar essa Runa uma terceira vez,
+    ele fica Atordoado por 1 rodada adicionalmente (Fortitude impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Dano de Impacto. O alvo fica Caído. Se aplicar essa Runa uma terceira
+    vez, ele fica Preso (Reflexos impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Dano de Essência. O alvo fica Lento (2) para cada vez que você aplicar
+    essa Runa (Vontade impõe Desvantagem). </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Dano de Trevas. O alvo fica com Medo. Se aplicar essa Runa uma terceira
+    vez, ele fica Atordoado por 1 rodada adicionalmente (Vontade impõe Desvantagem).  </p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

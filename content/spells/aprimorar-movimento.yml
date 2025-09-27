@@ -1,0 +1,534 @@
+slug: aprimorar-movimento
+name: APRIMORAR MOVIMENTO
+school: ''
+version: '1.0'
+attributes:
+  execução: '** Ação'
+  alcance: '** Curto'
+  alvo: '** Uma criatura voluntária'
+manual_html: '<p><em>Você infunde energia arcana em um aliado, aprimorando sua mobilidade
+  natural e concedendo novos modos de deslocamento.</em></p>
+
+  <hr>
+
+  <ul>
+
+  <li><strong>Execução.</strong> Ação</li>
+
+  <li><strong>Alcance.</strong> Curto</li>
+
+  <li><strong>Alvo.</strong> Uma criatura voluntária</li>
+
+  <li><strong>Duração.</strong> Cena</li>
+
+  </ul>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td style="text-align: left;">O deslocamento do alvo aumenta, de acordo com o Círculo
+  da magia.</td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>
+
+  <ul>
+
+  <li><strong>Círculo 1:</strong> Deslocamento +2</li>
+
+  <li><strong>Círculo 2:</strong> Deslocamento +4 | Mude o alvo para criaturas voluntárias</li>
+
+  <li><strong>Círculo 3:</strong> Deslocamento +6 </li>
+
+  <li><strong>Círculo 4:</strong> Deslocamento +8 | Mude o alvo para criaturas voluntárias</li>
+
+  <li><strong>Círculo 5:</strong> Deslocamento +10</li>
+
+  </ul>
+
+  <hr>
+
+  </div>
+
+  <table>
+
+  <thead>
+
+  <tr>
+
+  <th style="text-align: left;"></th>
+
+  </tr>
+
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+  <td></td>
+
+  </tr>
+
+  </tbody>
+
+  </table>'
+rune_effects:
+  agua: '<p>Concede deslocamento de Natação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  ar: '<p>Concede deslocamento de Levitação. Se aplicar essa Runa uma terceira vez,
+    concede deslocamento de Voo.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  eletricidade: '<p>Deixa o terreno por onde passar Eletrocutado (1) para cada vez
+    que aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  espaco: '<p>Torna o alvo Incorpóreo durante o deslocamento, permitindo atravessar
+    espaços ocupados e evitando Ataques de Oportunidade. Se aplicar essa Runa uma
+    terceira vez, concede deslocamento de Teletransporte.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  essencia: '<p>Aumente o deslocamento do alvo em 1 para cada vez que aplicar essa
+    Runa. Se aplicar uma terceira vez, o alvo se torna um Incorpóreo durante o deslocamento,
+    permitindo atravessar espaços ocupados.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  fogo: '<p>Deixa o terreno por onde passar Em Chamas (1) para cada vez que aplicar
+    essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gelo: '<p>Deixa o terreno por onde passar Escorregadio.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  gravidade: '<p>O alvo pode usar uma Ação Livre para mudar o próprio centro de gravidade,
+    podendo andar e correr nas paredes e teto como se fosse o chão. Se aplicar essa
+    Runa uma terceira vez, concede deslocamento de Voo.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  luz: '<p>Aumente o deslocamento do alvo em 1 para cada vez que aplicar essa Runa.
+    Se aplicar uma terceira vez, o alvo se torna um feixe de luz durante o deslocamento,
+    permitindo atravessar espaços ocupados (desde que pelo menos um feixe de Luz consiga
+    atravessar para o outro lado) e evitando Ataques de Oportunidade.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  mente: '<p>Concede deslocamento de Levitação. Se aplicar essa Runa uma terceira
+    vez, concede deslocamento de Voo.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  metal: '<p>Aumente a capacidade de Carga em 5 para cada vez que aplicar essa Runa.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  som: '<p>Inimigos são considerados Surdos quando tentam localizar o alvo.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  tempo: '<p>Concede um Movimento adicional por rodada. Se aplicar essa Runa uma terceira
+    vez, concede uma Ação adicional ao invés (e muda a duração para Concentração).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  terra: '<p>Concede deslocamento de Escavação.</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  trevas: '<p>Se estiver em uma área de Escuridão, recebe deslocamento de Teletransporte
+    (desde que o destino do deslocamento seja uma área de Escuridão).</p>
+
+    <table>
+
+    <thead>
+
+    <tr>
+
+    <th style="text-align: left;"></th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+
+    <td></td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    <p>\pagebreakNum</p>
+
+    <div class=''classTable wide''>'

@@ -1,0 +1,17 @@
+﻿# Python / venv
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django / banco / estáticos gerados
+db.sqlite3
+staticfiles/
+
+# Editor / SO
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Segredos
+.env
