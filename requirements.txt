@@ -9,3 +9,4 @@ bleach==6.2.0
 beautifulsoup4==4.13.5
 requests==2.32.5
 Unidecode==1.4.0
+PyYAML==6.0.3
