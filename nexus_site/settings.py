@@ -46,12 +46,30 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'nexus_site.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# DATABASE via dj-database-url (Postgres se houver DATABASE_URL; senão, SQLite)
+import dj_database_url
+from urllib.parse import urlparse
+
+db_url = os.getenv("DATABASE_URL", "").strip()
+
+if db_url:
+    scheme = urlparse(db_url).scheme.lower()
+    is_pg = scheme.startswith("postgres")
+    DATABASES = {
+        "default": dj_database_url.parse(
+            db_url,
+            conn_max_age=600,
+            ssl_require=is_pg and bool(os.getenv("RENDER")),
+        )
     }
-}
+else:
+    # Fallback 100% SQLite (sem sslmode)
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = []
 
