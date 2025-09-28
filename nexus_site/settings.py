@@ -1,63 +1,121 @@
 from pathlib import Path
+import os
+from urllib.parse import urlparse
 
+# Dependências de DB (instale via requirements.txt)
+import dj_database_url
+
+# =========================
+# Caminhos base
+# =========================
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'dev-secret-key-change-me'
-DEBUG = True
-ALLOWED_HOSTS = ['*']
+# =========================
+# Segurança / Debug
+# =========================
+# Defina SECRET_KEY nas variáveis de ambiente em produção
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-unsafe-change-me")
 
+# DEBUG por env (padrão False em produção)
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+
+# ALLOWED_HOSTS dinâmico:
+# - inclui o host do Render (RENDER_EXTERNAL_URL)
+# - inclui localhost/127.0.0.1 para dev
+RENDER_EXTERNAL_URL = os.getenv("RENDER_EXTERNAL_URL", "").strip()
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+if RENDER_EXTERNAL_URL:
+    host = RENDER_EXTERNAL_URL.split("://", 1)[-1]
+    if host:
+        ALLOWED_HOSTS.append(host)
+
+# CSRF_TRUSTED_ORIGINS coerente com hosts (https)
+CSRF_TRUSTED_ORIGINS = []
+if RENDER_EXTERNAL_URL:
+    # Ex.: https://meuapp.onrender.com
+    CSRF_TRUSTED_ORIGINS = [RENDER_EXTERNAL_URL]
+else:
+    # Caso você adicione domínio próprio no futuro
+    CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in ALLOWED_HOSTS if "." in h]
+
+# Em proxies (Render), ajuda a detectar HTTPS corretamente
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+# =========================
+# Apps
+# =========================
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'grimorio.apps.GrimorioConfig',
+    # Django
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+
+    # App do projeto
+    "grimorio",
 ]
 
+# =========================
+# Middlewares
+# =========================
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    # WhiteNoise logo após SecurityMiddleware
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'nexus_site.urls'
+# =========================
+# URLs / WSGI
+# =========================
+ROOT_URLCONF = "nexus_site.urls"
+WSGI_APPLICATION = "nexus_site.wsgi.application"
 
+# =========================
+# Templates
+# =========================
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        # Se você também tiver um diretório de templates na raiz, adicione aqui:
+        "DIRS": [
+            # BASE_DIR / "templates",
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'nexus_site.wsgi.application'
-
-
-# DATABASE via dj-database-url (Postgres se houver DATABASE_URL; senão, SQLite)
-import os
-from pathlib import Path
-from urllib.parse import urlparse
-import dj_database_url
-
+# =========================
+# Banco de Dados
+# - Usa Postgres se DATABASE_URL existir
+# - Fallback segura para SQLite (sem sslmode)
+# =========================
 db_url = os.getenv("DATABASE_URL", "").strip()
-
 if db_url:
     scheme = urlparse(db_url).scheme.lower()
     is_pg = scheme.startswith("postgres")
+
+    # (debug opcional) deixe ligado se quiser ver nos logs do Render
+    print(
+        f"[DB] DATABASE_URL detectado (scheme={scheme}) -> usando dj_database_url.parse; "
+        f"ssl_require={'on' if (is_pg and bool(os.getenv('RENDER'))) else 'off'}"
+    )
+
     DATABASES = {
         "default": dj_database_url.parse(
             db_url,
@@ -66,7 +124,7 @@ if db_url:
         )
     }
 else:
-    # Fallback 100% SQLite (sem sslmode)
+    print("[DB] DATABASE_URL não definido -> usando SQLite local (db.sqlite3)")
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -74,67 +132,58 @@ else:
         }
     }
 
+# =========================
+# Senhas / Autenticação
+# =========================
+AUTH_PASSWORD_VALIDATORS = [
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+]
 
-AUTH_PASSWORD_VALIDATORS = []
-
-LANGUAGE_CODE = 'pt-br'
-TIME_ZONE = 'America/Sao_Paulo'
+# =========================
+# Localização / Tempo
+# =========================
+LANGUAGE_CODE = "pt-br"
+TIME_ZONE = "America/Maceio"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = []
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# ==== Deploy helpers (Render) ====
-import os
-from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# DEBUG/SECRET_KEY a partir de env (usa defaults seguros p/ dev)
-DEBUG = os.getenv("DEBUG", "False").lower() == "true" or globals().get("DEBUG", False)
-SECRET_KEY = os.getenv("SECRET_KEY", globals().get("SECRET_KEY", "dev-unsafe-change-me"))
-
-# ALLOWED_HOSTS dinâmico: pega do próprio settings (se houver) + Render
-_render_host = []
-_render_external_url = os.getenv("RENDER_EXTERNAL_URL")
-if _render_external_url:
-    # ex: https://meuapp.onrender.com -> host = meuapp.onrender.com
-    _render_host = [_render_external_url.split("://", 1)[-1]]
-# Se já havia ALLOWED_HOSTS definido acima, preserva e acrescenta:
-ALLOWED_HOSTS = list(set(globals().get("ALLOWED_HOSTS", []) + _render_host + ["localhost", "127.0.0.1"]))
-
-# CSRF_TRUSTED_ORIGINS coerente com hosts
-CSRF_TRUSTED_ORIGINS = []
-if _render_external_url:
-    CSRF_TRUSTED_ORIGINS = [_render_external_url]
-else:
-    # útil se você usar domínio próprio depois
-    CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in ALLOWED_HOSTS if "." in h]
-
-# STATIC
+# =========================
+# Arquivos estáticos
+# =========================
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Se você tiver assets “globais” fora dos apps, adicione aqui:
+# STATICFILES_DIRS = [ BASE_DIR / "static" ]
+
+# WhiteNoise: arquivos comprimidos + cache busting
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# WhiteNoise logo após SecurityMiddleware
-try:
-    MIDDLEWARE  # noqa
-except NameError:
-    MIDDLEWARE = []
-if "django.middleware.security.SecurityMiddleware" not in MIDDLEWARE:
-    MIDDLEWARE.insert(0, "django.middleware.security.SecurityMiddleware")
-if "whitenoise.middleware.WhiteNoiseMiddleware" not in MIDDLEWARE:
-    sec_idx = MIDDLEWARE.index("django.middleware.security.SecurityMiddleware")
-    MIDDLEWARE.insert(sec_idx + 1, "whitenoise.middleware.WhiteNoiseMiddleware")
+# =========================
+# Arquivos de mídia (se vier a usar)
+# =========================
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = BASE_DIR / "media"
 
-# DATABASE via dj-database-url (Postgres no Render; SQLite como fallback)
-import dj_database_url  # noqa: E402
-DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL", f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
-        conn_max_age=600,
-        ssl_require=bool(os.getenv("RENDER")),
-    )
+# =========================
+# Padrão de chave primária
+# =========================
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# =========================
+# Logging básico (opcional, útil no Render)
+# =========================
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"class": "logging.StreamHandler"},
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO" if not DEBUG else "DEBUG",
+    },
 }
