@@ -46,9 +46,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'nexus_site.wsgi.application'
 
+
 # DATABASE via dj-database-url (Postgres se houver DATABASE_URL; senão, SQLite)
-import dj_database_url
+import os
+from pathlib import Path
 from urllib.parse import urlparse
+import dj_database_url
 
 db_url = os.getenv("DATABASE_URL", "").strip()
 
@@ -70,6 +73,7 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
+
 
 AUTH_PASSWORD_VALIDATORS = []
 
