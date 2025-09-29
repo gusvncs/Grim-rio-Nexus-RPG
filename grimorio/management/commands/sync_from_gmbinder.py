@@ -52,7 +52,6 @@ def extract_spells(html: str):
         if rname is not None: rune_sections.append((rname, rnodes))
 
         # atributos (best-effort)
-        import re
         text_flat = re.sub(r"\s+", " ", BeautifulSoup(html_of(manual_nodes), "html.parser").get_text(" ", strip=True))
         attrs, keys = {}, ["Execução","Alcance","Alvo","Área","Duração"]
         for k in keys:
