@@ -5,6 +5,12 @@ from django.core.management import call_command
 from unidecode import unidecode
 import markdown as md
 
+def add_arguments(self, p):
+    p.add_argument("--url", required=True, help="URL do GM Binder (de preferência, o /source)")
+    p.add_argument("--out-root", default="content", help="Pasta content/ para YAML")
+    p.add_argument("--strict", action="store_true", help="Falhar se houver magia com runa desconhecida")
+    p.add_argument("--debug-headings", action="store_true", help="Imprime os H1..H3 detectados (diagnóstico)")
+
 def slugify(text: str) -> str:
     text = unidecode((text or "").strip().lower())
     text = re.sub(r"[^\w\s-]", "", text)
@@ -187,3 +193,29 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS(f"YAML gerado em {out_root}/spells e {out_root}/runes"))
         call_command("import_content", content_root=out_root, strict=strict)
+
+r = requests.get(url, timeout=60)
+r.raise_for_status()
+raw = r.text
+
+if o.get("debug_headings"):
+    from bs4 import BeautifulSoup
+    import re, textwrap
+    # Garante HTML (mesma função que você já usa internamente)
+    def ensure_html(text):
+        import markdown as md
+        if re.search(r"<h[1-6]\b", text[:4000], flags=re.I):
+            return text
+        return md.markdown(text, extensions=["extra", "sane_lists"])
+    html = ensure_html(raw)
+    soup = BeautifulSoup(html, "html.parser")
+    heads = soup.find_all(re.compile(r"^h[1-6]$"))
+    print("=== HEADINGS DETECTADOS (até H3) ===")
+    for h in heads:
+        level = h.name
+        txt = h.get_text(" ", strip=True)
+        if level in ("h1","h2","h3"):
+            print(f"{level.upper()}: {txt}")
+    print("=== FIM HEADINGS ===")
+
+spells = extract_spells(raw)
