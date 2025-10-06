@@ -117,14 +117,8 @@ def extract_spells_from_section(section_soup: BeautifulSoup):
         title = h3.get_text(" ", strip=True)
         if not title:
             continue
-
         nodes = collect_until_next_h3(h3)
         manual_nodes, rune_sections = split_manual_and_runes(nodes)
-
-        # ✅ pular “magias” sem nenhuma runa detectada
-        if not rune_sections:
-            continue
-
         spells.append({
             "name": title,
             "slug": slugify(title),
@@ -133,7 +127,6 @@ def extract_spells_from_section(section_soup: BeautifulSoup):
             "rune_effects": {slugify(nm): html_of(ns).strip() for nm, ns in rune_sections},
         })
     return spells
-
 
 def fetch_source_text(url: str, debug_fetch: bool = False) -> str:
     """
@@ -266,7 +259,16 @@ class Command(BaseCommand):
             raise CommandError("Nenhuma magia encontrada dentro da seção 'MAGIAS ARCANAS'.")
 
         seen_runes = set()
+        kept = 0
+        skipped = 0
+
         for sp in spells:
+            # ⚠️ pular magias sem efeitos de runa
+            if not sp.get("rune_effects"):
+                skipped += 1
+                self.stdout.write(f"  ! {sp['name']} (0 runas) — ignorada")
+                continue
+
             y = {
                 "slug": sp["slug"],
                 "name": sp["name"],
@@ -278,24 +280,11 @@ class Command(BaseCommand):
             }
             with open(os.path.join(spells_dir, f"{sp['slug']}.yml"), "w", encoding="utf-8") as f:
                 yaml.safe_dump(y, f, sort_keys=False, allow_unicode=True)
+
             seen_runes.update(sp["rune_effects"].keys())
+            kept += 1
             self.stdout.write(f"  ✓ {sp['name']} ({len(sp['rune_effects'])} runas)")
 
-        for rs in sorted(seen_runes):
-            path = os.path.join(runes_dir, f"{rs}.yml")
-            if not os.path.exists(path):
-                with open(path, "w", encoding="utf-8") as f:
-                    yaml.safe_dump(
-                        {
-                            "slug": rs,
-                            "name": rs.replace("-", " ").title(),
-                            "description_html": "",
-                            "domain": "",
-                        },
-                        f,
-                        sort_keys=False,
-                        allow_unicode=True,
-                    )
-
-        self.stdout.write(self.style.SUCCESS(f"YAML gerado em {out_root}/spells e {out_root}/runes"))
-        call_command("import_content", content_root=out_root, strict=strict)
+        self.stdout.write(self.style.SUCCESS(
+            f"Importação de magias concluída: {kept} mantidas, {skipped} ignoradas (0 runas)."
+        ))
