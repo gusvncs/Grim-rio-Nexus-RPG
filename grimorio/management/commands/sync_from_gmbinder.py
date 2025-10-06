@@ -10,6 +10,20 @@ import markdown as md
 
 ATTR_KEYS_PT = ["Execução", "Alcance", "Alvo", "Área", "Duração"]
 
+# Títulos instrucionais que não devem virar magias
+SKIP_TITLES = {
+    "APLIQUE RUNAS",
+    "ESCOLHA A MAGIA",
+    "DETERMINE O CÍRCULO",
+    "DETERMINE O CIRCULO",
+    "CONJURANDO MAGIAS",
+    "DESCRIÇÃO DAS RUNAS",
+    "DESCRICAO DAS RUNAS",
+    "LISTA DE MAGIAS",
+    "MAGIAS ARCANAS",
+    "MAGIAS DIVINAS",
+}
+
 def slugify(text: str) -> str:
     text = unidecode((text or "").strip().lower())
     text = re.sub(r"[^\w\s-]", "", text)
@@ -117,8 +131,20 @@ def extract_spells_from_section(section_soup: BeautifulSoup):
         title = h3.get_text(" ", strip=True)
         if not title:
             continue
+
+        # pula títulos instrucionais / seções que não são magias
+        title_norm = norm_text(title).lstrip("# ").strip()
+        if title_norm in SKIP_TITLES or title_norm.startswith("#"):
+            # ex.: "# Aplique Runas", "Conjurando Magias", etc.
+            continue
+
         nodes = collect_until_next_h3(h3)
         manual_nodes, rune_sections = split_manual_and_runes(nodes)
+
+        # se não detectou nenhuma runa, não importar
+        if not rune_sections:
+            continue
+
         spells.append({
             "name": title,
             "slug": slugify(title),
@@ -127,6 +153,7 @@ def extract_spells_from_section(section_soup: BeautifulSoup):
             "rune_effects": {slugify(nm): html_of(ns).strip() for nm, ns in rune_sections},
         })
     return spells
+
 
 def fetch_source_text(url: str, debug_fetch: bool = False) -> str:
     """
