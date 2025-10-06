@@ -117,8 +117,14 @@ def extract_spells_from_section(section_soup: BeautifulSoup):
         title = h3.get_text(" ", strip=True)
         if not title:
             continue
+
         nodes = collect_until_next_h3(h3)
         manual_nodes, rune_sections = split_manual_and_runes(nodes)
+
+        # ✅ pular “magias” sem nenhuma runa detectada
+        if not rune_sections:
+            continue
+
         spells.append({
             "name": title,
             "slug": slugify(title),
@@ -127,6 +133,7 @@ def extract_spells_from_section(section_soup: BeautifulSoup):
             "rune_effects": {slugify(nm): html_of(ns).strip() for nm, ns in rune_sections},
         })
     return spells
+
 
 def fetch_source_text(url: str, debug_fetch: bool = False) -> str:
     """
