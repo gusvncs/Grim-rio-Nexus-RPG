@@ -1,3 +1,4 @@
+# grimorio/management/commands/sync_from_gmbinder.py
 import os
 import re
 import yaml
@@ -6,9 +7,13 @@ from bs4 import BeautifulSoup, Tag
 from django.core.management.base import BaseCommand, CommandError
 from django.core.management import call_command
 from unidecode import unidecode
-import markdown as md
 
+
+# ------------------------
+# Utilidades de texto/HTML
+# ------------------------
 ATTR_KEYS_PT = ["Execução", "Alcance", "Alvo", "Área", "Duração"]
+
 
 def slugify(text: str) -> str:
     text = unidecode((text or "").strip().lower())
@@ -16,29 +21,55 @@ def slugify(text: str) -> str:
     text = re.sub(r"[\s_]+", "-", text)
     return text.strip("-")
 
+
 def norm_text(txt: str) -> str:
     t = (txt or "").replace("\u00A0", " ").replace("\ufeff", "")
     t = unidecode(t)
     t = re.sub(r"\s+", " ", t).strip().upper()
     return t
 
-def normalize_markdown(md_text: str) -> str:
-    """Remove BOM/NBSP, normaliza quebras de linha e garante espaço após # em headings."""
-    t = md_text.replace("\ufeff", "").replace("\u00A0", " ")
-    t = t.replace("\r\n", "\n").replace("\r", "\n")
-    # força '# Título' (se vier '#Título')
-    t = re.sub(r'^(#{1,6})(?!\s)(.+)$', r'\1 \2', t, flags=re.M)
-    # remove espaços à direita
-    t = re.sub(r'^(#{1,6})\s+(.+?)\s*$', r'\1 \2', t, flags=re.M)
-    return t
-
-def md_to_html(markdown_text: str) -> str:
-    return md.markdown(markdown_text, extensions=["extra", "sane_lists"])
 
 def html_of(nodes) -> str:
     return "".join(str(n) for n in nodes if n is not None)
 
+
+# ------------------------
+# Download HTML renderizado
+# ------------------------
+def fetch_rendered_html(url: str, debug_fetch: bool = False) -> str:
+    """
+    Baixa a página 'bonita' do GM Binder (renderizada).
+    Se vier '/source', removemos para garantir HTML.
+    """
+    u = url.strip()
+    if u.rstrip("/").endswith("/source"):
+        u = u.rstrip("/")[:-7]  # remove '/source'
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/127 Safari/537.36"
+        ),
+        "Accept": "text/html, */*;q=0.8",
+        "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8",
+    }
+    r = requests.get(u, timeout=60, headers=headers, allow_redirects=True)
+    if debug_fetch:
+        ctype = r.headers.get("Content-Type", "")
+        print("[fetch] GET:", u)
+        print("[fetch] status:", r.status_code, "content-type:", ctype, "len:", len(r.text))
+    r.raise_for_status()
+    return r.text
+
+
+# ------------------------
+# Recortes por headings
+# ------------------------
 def slice_between_h1s(soup: BeautifulSoup, start_title: str, end_title: str | None):
+    """
+    Retorna um mini-soup contendo tudo ENTRE H1=start_title (inclusive após ele)
+    e H1=end_title (exclusivo). Compara títulos normalizados.
+    """
     heads = soup.find_all(re.compile(r"^h[1-6]$"))
     i0 = None
     for i, h in enumerate(heads):
@@ -47,6 +78,7 @@ def slice_between_h1s(soup: BeautifulSoup, start_title: str, end_title: str | No
             break
     if i0 is None:
         raise CommandError(f"Não encontrei a seção '{start_title}'.")
+
     i1 = None
     if end_title:
         for j in range(i0 + 1, len(heads)):
@@ -68,35 +100,109 @@ def slice_between_h1s(soup: BeautifulSoup, start_title: str, end_title: str | No
         container.append(n)
     return tmp
 
+
 def collect_until_next_h3(node_h3: Tag):
-    nodes, cur = [], node_h3.next_sibling
-    while cur:
-        if isinstance(cur, Tag) and cur.name in ("h1", "h2", "h3"):
+    """
+    Varre em ORDEM DE DOCUMENTO, coletando tudo depois de h3
+    até encontrar um novo h1/h2/h3.
+    Robusto a <div>, tabelas, \columnbreak etc.
+    """
+    nodes = []
+    node = node_h3.next_element
+    while node:
+        if isinstance(node, Tag) and node.name in ("h1", "h2", "h3"):
             break
-        nodes.append(cur)
-        cur = cur.next_sibling
+        nxt = node.next_element
+        nodes.append(node)
+        node = nxt
     return nodes
 
+
+# ------------------------
+# Separação manual/runas
+# ------------------------
 def split_manual_and_runes(nodes):
-    manual_nodes, rune_sections = [], []
-    in_runes, rname, rnodes = False, None, []
+    """
+    Separa:
+      - manual_nodes: tudo antes da primeira runa
+      - rune_sections: [(nome_runa, [nós html...]), ...]
+    Detecta runas por:
+      - H4..H6 contendo 'Runa ...'
+      - Linha em negrito no início de <p>/<li> com 'Runa de/da/do ...'
+    """
+    def _is_runa_heading(tag: Tag) -> str | None:
+        if not (isinstance(tag, Tag) and tag.name in ("h4", "h5", "h6")):
+            return None
+        title = tag.get_text(" ", strip=True)
+        m = re.search(r"(?i)\bRUNA\s+(?:DE|DA|DO)\s+(.+)", title or "")
+        if m:
+            return m.group(1).strip()
+        if "RUNA" in (title or "").upper():
+            after = title.upper().split("RUNA", 1)[1]
+            tail = title[-len(after):].strip(" :.-")
+            return tail or title
+        return None
 
+    def _is_runa_boldline(tag: Tag) -> str | None:
+        if not (isinstance(tag, Tag) and tag.name in ("p", "li")):
+            return None
+        first = None
+        for c in tag.contents:
+            if isinstance(c, Tag) or (isinstance(c, str) and c.strip()):
+                first = c
+                break
+        if not isinstance(first, Tag) or first.name not in ("strong", "b"):
+            return None
+        txt = first.get_text(" ", strip=True)
+        m = re.match(r"(?i)^\s*RUNA\s+(?:DE|DA|DO)\s+(.+?)[\.:]?\s*$", txt or "")
+        return m.group(1).strip() if m else None
+
+    # Contêiner temporário
+    tmp = BeautifulSoup("<div></div>", "html.parser")
+    cont = tmp.div
     for n in nodes:
-        if isinstance(n, Tag) and re.match(r"^h[4-6]$", n.name or ""):
-            title = n.get_text(" ", strip=True)
-            if norm_text(title).startswith("RUNA "):
-                if rname is not None:
-                    rune_sections.append((rname, rnodes))
-                m = re.search(r"(?i)\bRUNA\s+(?:DE|DA|DO)\s+(.+)", title)
-                rname = (m.group(1) if m else title).strip()
-                rnodes = []
-                in_runes = True
-                continue
-        (rnodes if in_runes else manual_nodes).append(n)
+        cont.append(n)
 
-    if rname is not None:
-        rune_sections.append((rname, rnodes))
+    # Âncoras em ordem de documento
+    anchors = []
+    for el in cont.descendants:
+        if not isinstance(el, Tag):
+            continue
+        nm = _is_runa_heading(el)
+        if nm:
+            anchors.append((el, nm))
+            continue
+        nm = _is_runa_boldline(el)
+        if nm:
+            anchors.append((el, nm))
+
+    # Manual = antes da primeira âncora
+    if not anchors:
+        return list(cont.children), []
+
+    first_anchor = anchors[0][0]
+    manual_nodes = []
+    for child in list(cont.children):
+        if child is first_anchor:
+            break
+        manual_nodes.append(child.extract())
+
+    # Conteúdo de cada runa = da âncora até a próxima âncora
+    rune_sections = []
+    for i, (start_tag, rune_name) in enumerate(anchors):
+        end_tag = anchors[i + 1][0] if i + 1 < len(anchors) else None
+        if start_tag.parent is None:
+            continue
+        collected = []
+        node = start_tag
+        while node and node is not end_tag:
+            nxt = node.next_sibling
+            collected.append(node.extract())
+            node = nxt
+        rune_sections.append((rune_name, collected))
+
     return manual_nodes, rune_sections
+
 
 def extract_attrs_from_manual(manual_nodes):
     text_flat = re.sub(
@@ -111,14 +217,21 @@ def extract_attrs_from_manual(manual_nodes):
             attrs[k.lower()] = m.group(1).strip()
     return attrs
 
+
 def extract_spells_from_section(section_soup: BeautifulSoup):
+    """
+    Para cada H3 dentro da seção, coleta bloco da magia, separa manual/runas
+    e retorna a estrutura usada no import.
+    """
     spells = []
     for h3 in section_soup.find_all("h3"):
         title = h3.get_text(" ", strip=True)
         if not title:
             continue
+
         nodes = collect_until_next_h3(h3)
         manual_nodes, rune_sections = split_manual_and_runes(nodes)
+
         spells.append({
             "name": title,
             "slug": slugify(title),
@@ -128,87 +241,24 @@ def extract_spells_from_section(section_soup: BeautifulSoup):
         })
     return spells
 
-def fetch_source_text(url: str, debug_fetch: bool = False) -> str:
-    """
-    Baixa o /source com User-Agent de navegador.
-    Se vier HTML, tenta extrair Markdown de <pre>, <code>, <textarea> etc.
-    Retorna sempre texto Markdown (ou, no pior caso, o texto bruto).
-    """
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/127.0.0.0 Safari/537.36"
-        ),
-        "Accept": "*/*",
-        "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8",
-        "Connection": "keep-alive",
-    }
-    r = requests.get(url, timeout=60, headers=headers, allow_redirects=True)
-    r.raise_for_status()
 
-    ctype = r.headers.get("Content-Type", "")
-    text = r.text or ""
-
-    if debug_fetch:
-        print("[fetch] status:", r.status_code)
-        print("[fetch] content-type:", ctype)
-        print("[fetch] length:", len(text))
-
-    # Se for claramente texto puro (provável markdown), devolve direto
-    if "text/plain" in ctype or (not "<html" in text[:200].lower()):
-        return text
-
-    # Se é HTML, tenta achar markdown em blocos
-    soup = BeautifulSoup(text, "html.parser")
-
-    # 1) blocos <pre> longos (muito comum para dumps de fonte)
-    for pre in soup.find_all("pre"):
-        t = pre.get_text("\n", strip=False)
-        if "#" in t or "MAGIAS ARCANAS" in t.upper():
-            if debug_fetch:
-                print("[fetch] markdown extraído de <pre>")
-            return t
-
-    # 2) <code> longo
-    for code in soup.find_all("code"):
-        t = code.get_text("\n", strip=False)
-        if "#" in t or "MAGIAS ARCANAS" in t.upper():
-            if debug_fetch:
-                print("[fetch] markdown extraído de <code>")
-            return t
-
-    # 3) <textarea> (alguns editores embutem o fonte aí)
-    for ta in soup.find_all("textarea"):
-        t = ta.get_text("\n", strip=False)
-        if "#" in t or "MAGIAS ARCANAS" in t.upper():
-            if debug_fetch:
-                print("[fetch] markdown extraído de <textarea>")
-            return t
-
-    # 4) fallback: texto do body
-    body = soup.body.get_text("\n", strip=False) if soup.body else text
-    if debug_fetch:
-        print("[fetch] fallback: devolvendo body text (pode não ser markdown real)")
-    return body
-
+# ------------------------
+# Management Command
+# ------------------------
 class Command(BaseCommand):
-    help = "Baixa o GM Binder (/source), normaliza Markdown, extrai magias (H3) e runas (H4+), e importa."
+    help = "Baixa o manual renderizado do GM Binder, extrai magias (H3) e runas (H4+/negrito), e importa no app."
 
     def add_arguments(self, p):
-        p.add_argument("--url", required=True, help="URL do GM Binder TERMINANDO em /source (markdown).")
+        p.add_argument("--url", required=True, help="URL pública do GM Binder (página renderizada; com ou sem /source).")
         p.add_argument("--out-root", default="content", help="Pasta raiz para YAML (content/).")
         p.add_argument("--strict", action="store_true", help="Falha se houver runa desconhecida nos efeitos.")
         p.add_argument("--debug-fetch", action="store_true", help="Mostra info do download (headers, length).")
         p.add_argument("--debug-headings", action="store_true", help="Imprime H1/H2/H3 após parse.")
-        p.add_argument("--debug-sample", action="store_true", help="Mostra amostra do /source normalizado.")
 
     def handle(self, *a, **o):
         url = (o.get("url") or os.getenv("GMBINDER_SOURCE_URL", "")).strip()
         if url.lower().startswith("value:"):
             url = url.split(":", 1)[1].strip()
-        if "gmbinder.com/share/" in url and not url.rstrip("/").endswith("/source"):
-            url = url.rstrip("/") + "/source"
         if not url.startswith(("http://", "https://")):
             raise CommandError(f"URL inválida: {url!r}")
 
@@ -216,54 +266,40 @@ class Command(BaseCommand):
         strict = bool(o.get("strict"))
         dbg_fetch = bool(o.get("debug_fetch"))
         dbg_heads = bool(o.get("debug_headings"))
-        dbg_sample = bool(o.get("debug_sample"))
 
         spells_dir = os.path.join(out_root, "spells")
         runes_dir = os.path.join(out_root, "runes")
         os.makedirs(spells_dir, exist_ok=True)
         os.makedirs(runes_dir, exist_ok=True)
 
-        self.stdout.write(self.style.NOTICE(f"Baixando (markdown): {url}"))
-        raw_md = fetch_source_text(url, debug_fetch=dbg_fetch)
-
-        md_clean = normalize_markdown(raw_md)
-
-        if dbg_sample:
-            print("=== SAMPLE /source (limpo) ===")
-            print(md_clean[:800])
-            print("\n[contém 'MAGIAS ARCANAS'?]", "SIM" if "MAGIAS ARCANAS" in md_clean.upper() else "NÃO")
-            print("=== FIM SAMPLE ===")
-
-        # 1) Markdown -> HTML
-        html = md_to_html(md_clean)
+        # 1) Baixar HTML renderizado
+        self.stdout.write(self.style.NOTICE(f"Baixando (HTML): {url}"))
+        html = fetch_rendered_html(url, debug_fetch=dbg_fetch)
         soup = BeautifulSoup(html, "html.parser")
-        heads = soup.find_all(re.compile(r"^h[1-6]$"))
 
+        # 2) (Opcional) inspecionar headings
         if dbg_heads:
-            print("=== HEADINGS (após Markdown->HTML) ===")
+            heads = soup.find_all(re.compile(r"^h[1-6]$"))
+            print("=== HEADINGS (HTML renderizado) ===")
             for h in heads:
                 if h.name in ("h1", "h2", "h3"):
                     print(f"{h.name.upper()}: {h.get_text(' ', strip=True)}")
             print("=== FIM HEADINGS ===")
 
-        # Recorte Magias Arcanas → Magias Divinas
-        try:
-            section = slice_between_h1s(soup, "MAGIAS ARCANAS", "MAGIAS DIVINAS")
-        except CommandError:
-            # 2) fallback: se o markdown não virou headings, tenta parsear o bruto como HTML
-            soup2 = BeautifulSoup(raw_md, "html.parser")
-            section = slice_between_h1s(soup2, "MAGIAS ARCANAS", "MAGIAS DIVINAS")
+        # 3) Recortar seção H1 "MAGIAS ARCANAS" -> "MAGIAS DIVINAS"
+        section = slice_between_h1s(soup, "MAGIAS ARCANAS", "MAGIAS DIVINAS")
 
+        # 4) Extrair magias
         spells = extract_spells_from_section(section)
         if not spells:
             raise CommandError("Nenhuma magia encontrada dentro da seção 'MAGIAS ARCANAS'.")
 
+        # 5) Gravar YAMLs (pulando magias sem runas)
         seen_runes = set()
         kept = 0
         skipped = 0
 
         for sp in spells:
-            # ⚠️ pular magias sem efeitos de runa
             if not sp.get("rune_effects"):
                 skipped += 1
                 self.stdout.write(f"  ! {sp['name']} (0 runas) — ignorada")
@@ -285,6 +321,26 @@ class Command(BaseCommand):
             kept += 1
             self.stdout.write(f"  ✓ {sp['name']} ({len(sp['rune_effects'])} runas)")
 
+        # 6) Criar YAML stub para runas vistas (se não existir)
+        for rs in sorted(seen_runes):
+            path = os.path.join(runes_dir, f"{rs}.yml")
+            if not os.path.exists(path):
+                with open(path, "w", encoding="utf-8") as f:
+                    yaml.safe_dump(
+                        {
+                            "slug": rs,
+                            "name": rs.replace("-", " ").title(),
+                            "description_html": "",
+                            "domain": "",
+                        },
+                        f,
+                        sort_keys=False,
+                        allow_unicode=True,
+                    )
+
         self.stdout.write(self.style.SUCCESS(
             f"Importação de magias concluída: {kept} mantidas, {skipped} ignoradas (0 runas)."
         ))
+
+        # 7) Importar para o DB
+        call_command("import_content", content_root=out_root, strict=strict)
